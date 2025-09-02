@@ -23,7 +23,7 @@ pipeline {
 
       stage('Docker Build and Push') {
         steps {
-          withDockerRegistry([credentialsId: "docker-cred", url: "https://index.docker.io/v1/"]) {
+          withDockerRegistry(credentialsId: "docker-cred") {
             sh 'printenv'
             sh 'docker build -t biswajitt/numeric-app:latest .'
             sh 'docker push biswajitt/numeric-app:latest'
